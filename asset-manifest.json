@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/autovizua11y-examples/static/css/main.7928cfeb.css",
+    "main.js": "/autovizua11y-examples/static/js/main.38671303.js",
+    "index.html": "/autovizua11y-examples/index.html",
+    "main.7928cfeb.css.map": "/autovizua11y-examples/static/css/main.7928cfeb.css.map",
+    "main.38671303.js.map": "/autovizua11y-examples/static/js/main.38671303.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7928cfeb.css",
+    "static/js/main.38671303.js"
+  ]
+}
