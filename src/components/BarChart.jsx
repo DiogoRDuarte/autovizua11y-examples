@@ -6,7 +6,7 @@ import { ascending, descending } from "d3-array";
 import { Text } from "@visx/text";
 import countryData from "../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
-import { AutoVizuA11y } from "autovizua11y";
+import { AutoVizuA11y } from "@feedzai/autovizua11y";
 
 function BarChart({ apiKey }) {
   const intValuesCountryData = countryData.map((country) => {

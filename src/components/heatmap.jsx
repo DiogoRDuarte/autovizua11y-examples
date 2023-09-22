@@ -6,7 +6,7 @@ import { ascending, descending } from "d3-array";
 import { scaleLinear, scaleBand } from "@visx/scale";
 import { HeatmapRect } from "@visx/heatmap";
 import { Axis } from "@visx/axis";
-import { AutoVizuA11y } from "autovizua11y";
+import { AutoVizuA11y } from "@feedzai/autovizua11y";
 
 function Heatmap({ apiKey }) {
   const intValuesCountryData = countryData.map((country) => {

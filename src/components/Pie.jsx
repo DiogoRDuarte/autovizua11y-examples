@@ -4,7 +4,7 @@ import { scaleOrdinal } from "@visx/scale";
 import countryData from "../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { Text } from "@visx/text";
-import { AutoVizuA11y } from "autovizua11y";
+import { AutoVizuA11y } from "@feedzai/autovizua11y";
 
 function Pie_({ apiKey }) {
   const intValuesCountryData = countryData.map((country) => {
