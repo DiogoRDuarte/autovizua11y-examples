@@ -13,8 +13,18 @@ function Homepage() {
   const [manual, setManual] = useState(false);
   const [home, setHome] = useState(true);
 
+  const goBack = () => {
+    setHome(true);
+    setAutomatic(false);
+    setManual(false);
+  };
+
   return (
     <div className="Homepage">
+      <link
+        href="https://fonts.googleapis.com/css?family=Outfit"
+        rel="stylesheet"
+      ></link>
       <h1>AutoVizuA11y - examples</h1>
       <h5>
         Data from{" "}
@@ -22,15 +32,20 @@ function Homepage() {
           UN Data
         </a>
       </h5>
+      {home === false ? (
+        <button onClick={goBack} tabIndex={0}>
+          Go back
+        </button>
+      ) : null}
       {isValid && apiKey !== "" ? (
         <div style={{ margin: 20 }}>
           {" "}
-          <CardGrid apiKey={apiKey} /> {console.log("A")}
+          <CardGrid apiKey={apiKey} setHome={setHome} /> {console.log("A")}
         </div>
       ) : manual ? (
         <div style={{ margin: 20 }}>
           {" "}
-          <CardGridManual /> {console.log("M")}
+          <CardGridManual setHome={setHome} /> {console.log("M")}
         </div>
       ) : automatic ? (
         <div style={{ margin: 20 }}>

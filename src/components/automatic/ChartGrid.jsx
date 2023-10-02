@@ -8,7 +8,8 @@ import Treemap_ from "./treeMap";
 import Grid from "@mui/material/Grid";
 import Heatmap from "./heatmap";
 
-function CardGrid({ apiKey }) {
+function CardGrid({ apiKey, setHome }) {
+  setHome(false);
   return (
     <Grid container direction="row" spacing={2}>
       <Grid item>

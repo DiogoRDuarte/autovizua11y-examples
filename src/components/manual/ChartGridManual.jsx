@@ -7,12 +7,12 @@ import PieManual from "./PieManual";
 import TreemapManual from "./treeMapManual";
 import Grid from "@mui/material/Grid";
 import HeatmapManual from "./heatmapManual";
-
 import manualDescriptions from "../../data/manualDescriptions.json";
 
 const manualDescsAux = manualDescriptions[0];
 
-function CardGridManual() {
+function CardGridManual({ setHome }) {
+  setHome(false);
   return (
     <Grid container direction="row" spacing={2}>
       <Grid item>

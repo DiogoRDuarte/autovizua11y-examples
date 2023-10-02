@@ -3,13 +3,9 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import "./Options.css";
 
-const KeyRequest = ({
-  apiKey,
-  setApiKey,
-  setIsValid,
-  setAutomatic,
-  setHome,
-}) => {
+const KeyRequest = ({ apiKey, setApiKey, setIsValid, setHome }) => {
+  setHome(false);
+
   const handleChanges = (e) => {
     setApiKey(e.target.value);
   };
@@ -31,24 +27,14 @@ const KeyRequest = ({
     return apiKeyPattern.test(key);
   };
 
-  const goBack = () => {
-    setHome(true);
-    setAutomatic(false);
-  };
-
   return (
     <>
-      <button onClick={goBack} tabIndex={0}>
-        Go back
-      </button>
       <div id="cardContainer">
         <Card sx={{ maxWidth: 400 }}>
           <CardContent>
             <form onSubmit={handleSubmit}>
-              <h2>
-                Option A)
-                <br /> <b>Automatic Descriptions</b>
-              </h2>
+              <h2>Option A</h2>
+              <h3>Automatic Descriptions</h3>
               <Typography
                 variant="body2"
                 color="text.secondary"

@@ -14,14 +14,15 @@ const Options = ({ setAutomatic, setManual }) => {
   };
   return (
     <>
+      <link
+        href="https://fonts.googleapis.com/css?family=Outfit"
+        rel="stylesheet"
+      ></link>
       <div id="cardContainer">
         <Card sx={{ maxWidth: 400 }}>
           <CardActionArea onClick={automaticChosen}>
             <CardContent>
-              <h2>
-                Option A)
-                <br /> <b>Automatic Descriptions</b>
-              </h2>
+              <h2>Option A</h2> <h3>Automatic Descriptions</h3>
               <Typography
                 variant="body2"
                 color="text.secondary"
@@ -37,10 +38,8 @@ const Options = ({ setAutomatic, setManual }) => {
         <Card sx={{ maxWidth: 400 }}>
           <CardActionArea onClick={manualChosen}>
             <CardContent>
-              <h2>
-                Option B) <br />
-                <b>Manual Descriptions</b>
-              </h2>
+              <h2>Option B</h2>
+              <h3>Manual Descriptions</h3>
               <Typography
                 variant="body2"
                 color="text.secondary"
