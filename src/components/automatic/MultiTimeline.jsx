@@ -3,7 +3,7 @@ import { GridRows } from "@visx/grid";
 import { Axis } from "@visx/axis";
 import { scaleLinear } from "@visx/scale";
 import { LinePath } from "@visx/shape";
-import countryData from "../data/country_data.json";
+import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
 

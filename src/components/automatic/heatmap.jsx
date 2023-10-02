@@ -1,5 +1,5 @@
 import { Group } from "@visx/group";
-import countryData from "../data/country_data.json";
+import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import genBins from "@visx/mock-data/lib/generators/genBins";
 import { ascending, descending } from "d3-array";

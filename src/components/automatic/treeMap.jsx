@@ -1,6 +1,6 @@
 import { Group } from "@visx/group";
 import { Treemap, hierarchy, stratify, treemapSquarify } from "@visx/hierarchy";
-import countryData from "../data/country_data.json";
+import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { Text } from "@visx/text";
 import { descending } from "d3-array";

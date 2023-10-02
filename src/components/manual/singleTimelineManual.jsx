@@ -3,11 +3,11 @@ import { GridColumns } from "@visx/grid";
 import { Axis } from "@visx/axis";
 import { scaleLinear } from "@visx/scale";
 import { LinePath } from "@visx/shape";
-import countryData from "../data/country_data.json";
+import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
 
-function SingleSeriesTimeline({ apiKey }) {
+function SingleSeriesTimelineManual({ longDesc, shortDesc }) {
   const intValuesCountryData = countryData.map((country) => {
     return {
       ...country, //copies all countrys first...
@@ -97,11 +97,9 @@ function SingleSeriesTimeline({ apiKey }) {
         context={
           "Data portrays the growth in population in India in the last decade "
         }
-        autoDescriptions={{
-          dynamicDescriptions: false,
-          apiKey: apiKey,
-          model: "gpt-3.5-turbo",
-          temperature: 0.1,
+        manualDescriptions={{
+          longer: longDesc,
+          shorter: shortDesc,
         }}
       >
         <svg width={380} height={chartDimensions.height}>
@@ -160,4 +158,4 @@ function SingleSeriesTimeline({ apiKey }) {
   );
 }
 
-export default SingleSeriesTimeline;
+export default SingleSeriesTimelineManual;

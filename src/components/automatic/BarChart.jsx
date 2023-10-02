@@ -4,7 +4,7 @@ import { Axis } from "@visx/axis";
 import { scaleBand, scaleLinear } from "@visx/scale";
 import { ascending, descending } from "d3-array";
 import { Text } from "@visx/text";
-import countryData from "../data/country_data.json";
+import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
 

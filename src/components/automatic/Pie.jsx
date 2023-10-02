@@ -1,7 +1,7 @@
 import { Group } from "@visx/group";
 import { Pie } from "@visx/shape";
 import { scaleOrdinal } from "@visx/scale";
-import countryData from "../data/country_data.json";
+import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { Text } from "@visx/text";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
