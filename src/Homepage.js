@@ -17,6 +17,7 @@ function Homepage() {
     setHome(true);
     setAutomatic(false);
     setManual(false);
+    setIsValid(false);
   };
 
   return (
