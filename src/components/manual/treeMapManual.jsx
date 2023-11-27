@@ -5,6 +5,7 @@ import { chartDimensions } from "./chart.constants";
 import { Text } from "@visx/text";
 import { descending } from "d3-array";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
+import transformJSON from "../../data/transformJSON.js";
 
 function TreemapManual({ longDesc, shortDesc }) {
   const intValuesCountryData = countryData.map((country) => {
@@ -56,6 +57,8 @@ function TreemapManual({ longDesc, shortDesc }) {
     (a, b) => (b.value || 0) - (a.value || 0)
   );
 
+  const dataTransformed = transformJSON(autovizData);
+
   return (
     <div style={{ textAlign: "left" }}>
       <h4 style={{ marginBottom: 2 }}>
@@ -65,10 +68,11 @@ function TreemapManual({ longDesc, shortDesc }) {
         Surface area (thousand km2)
       </p>
       <AutoVizuA11y
-        data={autovizData}
+        data={dataTransformed}
         type="Tree map"
         selectorType={{ element: "rect" }}
         descriptor="millions"
+        insights="y"
         title="Russia, Canada, China and the USA are the largest countries"
         context={
           "A few countries like Russia, Canada, China, and USA occupy a significant area. "

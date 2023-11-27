@@ -4,8 +4,10 @@ import { Axis } from "@visx/axis";
 import { scaleLinear } from "@visx/scale";
 import { LinePath } from "@visx/shape";
 import countryData from "../../data/country_data.json";
+import multipleData from "../../data/multipleEncodings.json";
 import { chartDimensions } from "./chart.constants";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
+import transformJSONmulti from "../../data/transformJSONmulti.js";
 
 function MultiSeriesTimelineManual({ longDesc, shortDesc }) {
   const intValuesCountryData = countryData.map((country) => {
@@ -81,7 +83,6 @@ function MultiSeriesTimelineManual({ longDesc, shortDesc }) {
     "aria-hidden": "true",
     fontSize: 12,
     textAnchor: "middle",
-    fontFamily: "Roboto ",
   });
   const leftTickLabelProps = () => ({
     "aria-hidden": "true",
@@ -89,9 +90,10 @@ function MultiSeriesTimelineManual({ longDesc, shortDesc }) {
     x: -10,
     dy: 5,
     textAnchor: "end",
-    fontFamily: "Roboto ",
   });
   const formatDate = (year) => year.toString();
+
+  const dataTransformed = transformJSONmulti(final);
 
   return (
     <div style={{ textAlign: "left" }}>
@@ -141,9 +143,10 @@ function MultiSeriesTimelineManual({ longDesc, shortDesc }) {
         millions
       </p>
       <AutoVizuA11y
-        data={final}
-        multiSeries={true}
+        data={dataTransformed}
+        multiSeries="series"
         type="Multi line chart"
+        insights="y"
         selectorType={{ element: "circle" }}
         descriptor="millions"
         title="Latvia, Lithuania, and Croatia are among the countries where population is decreasing"

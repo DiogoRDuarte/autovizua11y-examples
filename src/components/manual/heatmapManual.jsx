@@ -7,6 +7,7 @@ import { scaleLinear, scaleBand } from "@visx/scale";
 import { HeatmapRect } from "@visx/heatmap";
 import { Axis } from "@visx/axis";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
+import transformJSON from "../../data/transformJSON.js";
 
 function HeatmapManual({ longDesc, shortDesc }) {
   const intValuesCountryData = countryData.map((country) => {
@@ -153,7 +154,6 @@ function HeatmapManual({ longDesc, shortDesc }) {
     "aria-hidden": "true",
     fontSize: 12,
     textAnchor: "middle",
-    fontFamily: "Roboto ",
   });
   const leftTickLabelProps = () => ({
     "aria-hidden": "true",
@@ -161,7 +161,6 @@ function HeatmapManual({ longDesc, shortDesc }) {
     x: -10,
     dy: 5,
     textAnchor: "end",
-    fontFamily: "Roboto ",
   });
 
   // Initialize an empty array to store the min and max combinations
@@ -194,6 +193,8 @@ function HeatmapManual({ longDesc, shortDesc }) {
     minMaxCombinations.push({ binIndex, min, max });
   }
 
+  const dataTransformed = transformJSON(final);
+
   return (
     <div style={{ textAlign: "left" }}>
       <h4 style={{ marginBottom: 2 }}>
@@ -210,8 +211,9 @@ function HeatmapManual({ longDesc, shortDesc }) {
         millions
       </p>
       <AutoVizuA11y
-        data={final}
+        data={dataTransformed}
         type="Heatmap"
+        insights="y"
         selectorType={{ element: "rect" }}
         descriptor="millions"
         title="Population evolution between 2010 and 2022"

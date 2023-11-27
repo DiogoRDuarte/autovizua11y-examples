@@ -6,6 +6,7 @@ import { LinePath } from "@visx/shape";
 import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
+import transformJSON from "../../data/transformJSON.js";
 
 function SingleSeriesTimelineManual({ longDesc, shortDesc }) {
   const intValuesCountryData = countryData.map((country) => {
@@ -51,7 +52,6 @@ function SingleSeriesTimelineManual({ longDesc, shortDesc }) {
     "aria-hidden": "true",
     fontSize: 12,
     textAnchor: "middle",
-    fontFamily: "Roboto ",
   });
   const leftTickLabelProps = () => ({
     "aria-hidden": "true",
@@ -59,9 +59,10 @@ function SingleSeriesTimelineManual({ longDesc, shortDesc }) {
     x: -10,
     dy: 5,
     textAnchor: "end",
-    fontFamily: "Roboto ",
   });
   const formatDate = (year) => year.toString();
+
+  const dataTransformed = transformJSON(autovizData);
 
   return (
     <div style={{ textAlign: "left" }}>
@@ -89,10 +90,11 @@ function SingleSeriesTimelineManual({ longDesc, shortDesc }) {
         millions
       </p>
       <AutoVizuA11y
-        data={autovizData}
+        data={dataTransformed}
         type="Single line chart"
         selectorType={{ element: "circle" }}
         descriptor="millions"
+        insights="y"
         title="India's population went from 1.24 billion in 2010 to 1.42 billion in 2022"
         context={
           "Data portrays the growth in population in India in the last decade "

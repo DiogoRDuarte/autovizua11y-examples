@@ -6,6 +6,7 @@ import { LinePath } from "@visx/shape";
 import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
+import transformJSON from "../../data/transformJSON.js";
 
 function SingleSeriesTimeline({ apiKey }) {
   const intValuesCountryData = countryData.map((country) => {
@@ -51,7 +52,6 @@ function SingleSeriesTimeline({ apiKey }) {
     "aria-hidden": "true",
     fontSize: 12,
     textAnchor: "middle",
-    fontFamily: "Roboto ",
   });
   const leftTickLabelProps = () => ({
     "aria-hidden": "true",
@@ -59,9 +59,10 @@ function SingleSeriesTimeline({ apiKey }) {
     x: -10,
     dy: 5,
     textAnchor: "end",
-    fontFamily: "Roboto ",
   });
   const formatDate = (year) => year.toString();
+
+  const dataTransformed = transformJSON(autovizData);
 
   return (
     <div style={{ textAlign: "left" }}>
@@ -89,7 +90,8 @@ function SingleSeriesTimeline({ apiKey }) {
         millions
       </p>
       <AutoVizuA11y
-        data={autovizData}
+        data={dataTransformed}
+        insights="y"
         type="Single line chart"
         selectorType={{ element: "circle" }}
         descriptor="millions"

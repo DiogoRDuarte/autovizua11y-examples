@@ -7,6 +7,7 @@ import { Text } from "@visx/text";
 import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
+import transformJSON from "../../data/transformJSON.js";
 
 function BarChartManual({ longDesc, shortDesc }) {
   const intValuesCountryData = countryData.map((country) => {
@@ -65,8 +66,10 @@ function BarChartManual({ longDesc, shortDesc }) {
     "aria-hidden": "true",
     fontSize: 12,
     textAnchor: "middle",
-    fontFamily: "Roboto ",
   });
+
+  const dataTransformed = transformJSON(sortedObj);
+
   return (
     <div style={{ textAlign: "left" }}>
       <h4 style={{ marginBottom: 2 }}>
@@ -104,10 +107,11 @@ function BarChartManual({ longDesc, shortDesc }) {
         Top 10 from 2022 (millions)
       </p>
       <AutoVizuA11y
-        data={sortedObj}
+        data={dataTransformed}
         type="Bar chart"
         selectorType={{ element: "rect" }}
         descriptor="millions"
+        insights="y"
         title="China and India are the most populated countries"
         context={
           "List of the 10 most populated countries according with UN statistics from 2020. Data is in millions. "

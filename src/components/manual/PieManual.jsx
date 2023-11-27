@@ -5,6 +5,7 @@ import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { Text } from "@visx/text";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
+import transformJSON from "../../data/transformJSON.js";
 
 function PieManual({ longDesc, shortDesc }) {
   const intValuesCountryData = countryData.map((country) => {
@@ -67,6 +68,8 @@ function PieManual({ longDesc, shortDesc }) {
     range: ["#6943A1", "#00A39E", "#B3B7C4"],
   });
 
+  const dataTransformed = transformJSON(autovizData);
+
   return (
     <div style={{ textAlign: "left" }}>
       <h4 style={{ marginBottom: 2 }}>
@@ -104,7 +107,7 @@ function PieManual({ longDesc, shortDesc }) {
         millions
       </p>
       <AutoVizuA11y
-        data={autovizData}
+        data={dataTransformed}
         type="Pie chart"
         selectorType={{ element: "path" }}
         descriptor="millions"
@@ -112,7 +115,7 @@ function PieManual({ longDesc, shortDesc }) {
         context={
           "A significant proportion of the world's population is concentrated in these two countries."
         }
-        insights={false}
+        insights=""
         manualDescriptions={{
           longer: longDesc,
           shorter: shortDesc,

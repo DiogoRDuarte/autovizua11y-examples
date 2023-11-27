@@ -6,6 +6,7 @@ import { LinePath } from "@visx/shape";
 import countryData from "../../data/country_data.json";
 import { chartDimensions } from "./chart.constants";
 import { AutoVizuA11y } from "@feedzai/autovizua11y";
+import transformJSONmulti from "../../data/transformJSONmulti.js";
 
 function MultiSeriesTimeline({ apiKey }) {
   const intValuesCountryData = countryData.map((country) => {
@@ -81,7 +82,6 @@ function MultiSeriesTimeline({ apiKey }) {
     "aria-hidden": "true",
     fontSize: 12,
     textAnchor: "middle",
-    fontFamily: "Roboto ",
   });
   const leftTickLabelProps = () => ({
     "aria-hidden": "true",
@@ -89,9 +89,10 @@ function MultiSeriesTimeline({ apiKey }) {
     x: -10,
     dy: 5,
     textAnchor: "end",
-    fontFamily: "Roboto ",
   });
   const formatDate = (year) => year.toString();
+
+  const dataTransformed = transformJSONmulti(final);
 
   return (
     <div style={{ textAlign: "left" }}>
@@ -141,8 +142,8 @@ function MultiSeriesTimeline({ apiKey }) {
         millions
       </p>
       <AutoVizuA11y
-        data={final}
-        multiSeries={true}
+        data={dataTransformed}
+        multiSeries="series"
         type="Multi line chart"
         selectorType={{ element: "circle" }}
         descriptor="millions"

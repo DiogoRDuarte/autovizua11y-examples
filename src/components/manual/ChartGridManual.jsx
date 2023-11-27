@@ -7,7 +7,9 @@ import PieManual from "./PieManual";
 import TreemapManual from "./treeMapManual";
 import Grid from "@mui/material/Grid";
 import HeatmapManual from "./heatmapManual";
+import StackedBarManual from "./StackedBarManual";
 import manualDescriptions from "../../data/manualDescriptions.json";
+import ScatterplotManual from "./ScatterplotManual";
 
 const manualDescsAux = manualDescriptions[0];
 
@@ -73,6 +75,26 @@ function CardGridManual({ setHome }) {
               longDesc={manualDescsAux["longDesc6"]}
               shortDesc={manualDescsAux["shortDesc6"]}
             ></HeatmapManual>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item>
+        <Card sx={{ minWidth: 275, width: 450 }}>
+          <CardContent>
+            <StackedBarManual
+              longDesc={manualDescsAux["longDesc7"]}
+              shortDesc={manualDescsAux["shortDesc7"]}
+            ></StackedBarManual>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item>
+        <Card sx={{ minWidth: 275, width: 450 }}>
+          <CardContent>
+            <ScatterplotManual
+              longDesc={manualDescsAux["longDesc8"]}
+              shortDesc={manualDescsAux["shortDesc8"]}
+            ></ScatterplotManual>
           </CardContent>
         </Card>
       </Grid>

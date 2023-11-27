@@ -7,6 +7,8 @@ import Pie_ from "./Pie";
 import Treemap_ from "./treeMap";
 import Grid from "@mui/material/Grid";
 import Heatmap from "./heatmap";
+import StackedBar from "./StackedBar";
+import Scatterplot from "./Scatterplot";
 
 function CardGrid({ apiKey, setHome }) {
   setHome(false);
@@ -52,6 +54,20 @@ function CardGrid({ apiKey, setHome }) {
         <Card sx={{ minWidth: 275, width: 450 }}>
           <CardContent>
             <Heatmap apiKey={apiKey}></Heatmap>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item>
+        <Card sx={{ minWidth: 275, width: 450 }}>
+          <CardContent>
+            <StackedBar apiKey={apiKey}></StackedBar>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item>
+        <Card sx={{ minWidth: 275, width: 450 }}>
+          <CardContent>
+            <Scatterplot apiKey={apiKey}></Scatterplot>
           </CardContent>
         </Card>
       </Grid>
