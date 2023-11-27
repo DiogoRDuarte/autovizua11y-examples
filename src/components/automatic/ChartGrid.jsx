@@ -13,7 +13,13 @@ import Scatterplot from "./Scatterplot";
 function CardGrid({ apiKey, setHome }) {
   setHome(false);
   return (
-    <Grid container direction="row" spacing={2}>
+    <Grid
+      container
+      direction="row"
+      spacing={2}
+      justifyContent="center"
+      alignItems="center"
+    >
       <Grid item>
         <Card sx={{ minWidth: 275, width: 450 }}>
           <CardContent>

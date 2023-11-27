@@ -39,12 +39,12 @@ function Homepage() {
         </button>
       ) : null}
       {isValid && apiKey !== "" ? (
-        <div style={{ marginLeft: 100, marginTop: 20 }}>
+        <div style={{ marginTop: 20 }}>
           {" "}
           <CardGrid apiKey={apiKey} setHome={setHome} />
         </div>
       ) : manual ? (
-        <div style={{ marginLeft: 100, marginTop: 20 }}>
+        <div style={{ marginTop: 20 }}>
           {" "}
           <CardGridManual setHome={setHome} />
         </div>
