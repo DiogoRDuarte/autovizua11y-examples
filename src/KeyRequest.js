@@ -23,7 +23,7 @@ const KeyRequest = ({ apiKey, setApiKey, setIsValid, setHome }) => {
   };
 
   const isValidApiKey = (key) => {
-    const apiKeyPattern = /^sk-[a-zA-Z0-9]{48}$/;
+    const apiKeyPattern = /^sk-(proj-)?[a-zA-Z0-9]{48}$/;
     return apiKeyPattern.test(key);
   };
 
@@ -56,7 +56,7 @@ const KeyRequest = ({ apiKey, setApiKey, setIsValid, setHome }) => {
                 API Key:{" "}
                 <input
                   type="text"
-                  placeholder="sk-..."
+                  placeholder="sk-... OR sk-proj-..."
                   value={apiKey}
                   onChange={handleChanges}
                 />
